@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "195224939117",
+    "project_id": "go2go-cart",
+    "storage_bucket": "go2go-cart.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195224939117:android:ffc17f5f57ba2e03f0ed64",
+        "android_client_info": {
+          "package_name": "com.example.go2go_cart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195224939117-l6sjl0shsad3952u721athg745rdkpge.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.go2go_cart",
+            "certificate_hash": "7c07c02c908e2dfc90c85345716b757387c14056"
+          }
+        },
+        {
+          "client_id": "195224939117-gvln0ftoj0vkfm8j3l8e4bk8d6dlveqd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrDXKTKNoNbdDjAi27F08YO5UGp81vr3E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195224939117-gvln0ftoj0vkfm8j3l8e4bk8d6dlveqd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
