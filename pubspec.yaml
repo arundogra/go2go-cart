@@ -111,7 +111,17 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/
+    - assets/images/
+    - assets/fonts/
+
+  fonts:
+    - family: Circular
+      fonts:
+        - asset: assets/fonts/CircularStd-Medium.ttf
+        - asset: assets/fonts/CircularAir-Light.ttf
+          weight: 100
+        - asset: assets/fonts/CircularStd-Bold.ttf
+          weight: 500
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://futter.dev/assets-and-images/#resolution-aware.
 
@@ -138,15 +148,14 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
 flutter_native_splash:
-    color: "#ffffff"
-    image: assets/icon.png
-    color_dark: "#121212"
-    image_dark: assets/icon.png
 
-    android_12:
-      image: assets/icon.png
-      icon_background_color: "#ffffff"
-      image_dark: assets/icon.png
-      icon_background_color_dark: "#121212"
+  color: "#e1f5fe"
+  image: assets/images/ic_logo.png
 
-    web: false
+  color_dark: "#e1f5fe"
+  image_dark: assets/images/ic_logo.png
+
+  fullscreen: true
+  android12: true
+
+  #( flutter pub run flutter_native_splash:create )

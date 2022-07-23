@@ -1,6 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 
 class NetworkInfoImpl {
+
   Future<bool> getNetworkState() async {
     var connectivityResult = await (Connectivity().checkConnectivity());
 
@@ -8,8 +9,12 @@ class NetworkInfoImpl {
       return true;
     } else if (connectivityResult == ConnectivityResult.wifi) {
       return true;
-    } else {
+    }else{
       return false;
     }
   }
+  
 }
+
+
+
