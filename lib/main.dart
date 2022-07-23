@@ -1,77 +1,53 @@
-import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:go2go_cart/view/app/homepage.dart';
+import 'package:go2go_cart/view/core/custom_drawer_widget.dart';
+import 'package:go2go_cart/view/helpers/progress_alert.dart';
+import 'package:go2go_cart/view/theme/AppTheme.dart';
+import 'package:go2go_cart/view/theme/theme_notifier.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'view/helpers/colors.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.top]).then((_) {
+    SharedPreferences.getInstance().then((prefs) {
+      var darkModeOn = prefs.getBool('darkMode') ?? true;
+      runApp(
+        ChangeNotifierProvider<ThemeNotifier>(
+          create: (BuildContext context) => ThemeNotifier(
+              darkModeOn ? AppTheme.darkTheme : AppTheme.lightTheme),
+          child: MyApp(),
+        ),
+      );
+    });
+  });
+
+  await Firebase.initializeApp();
+  ProgressView.loadingIndicator();
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final themeNotifier = Provider.of<ThemeNotifier>(context);
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: AnimatedSplashScreen(
-        splash: Image.asset('assets/icon.png', fit: BoxFit.cover,),
-        nextScreen: MyHomePage(title: 'Flutter Demo Home Page'),
-        duration: 1000,
-        splashTransition: SplashTransition.fadeTransition,
-        backgroundColor: Colors.greenAccent.shade400,
+      debugShowCheckedModeBanner: false,
+      theme: themeNotifier.getTheme(),
+      home: CustomDrawerWidget(
+        child: MenuPage(),
       ),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
-  }
-}

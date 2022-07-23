@@ -27,13 +27,59 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+
+
+  #Lib for Caching image (Like Glide in android)
+  cached_network_image: ^3.2.0
+  #Slider for banners (like in Offers screen)
+  carousel_slider: ^4.0.0
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.4
+  #Ahha google map for flutter
+  google_maps_flutter: ^2.0.6
+  #Link sharing for all platforms
+  share_plus: ^2.1.4 #TODO
+  #Slideable for listviews
+  flutter_slidable: ^0.6.0
+  #Switch button for Day night theme changing
+  day_night_switcher: ^0.2.0+1
+  #Ahha Google Fonts
+  google_fonts: ^2.1.0
+  #State Management using provider
+  provider: ^6.0.0
+
+  #Firebase stuff
+  firebase_auth: ^3.3.5
+  firebase_core: ^1.11.0
+  firebase_messaging: ^11.2.5
+  firebase_messaging_web: ^2.2.6
+
+
   flutter:
     sdk: flutter
 
+  #Facebook auth
+  flutter_facebook_auth: ^4.0.0
+  #Key value storing using Share Pref
+  shared_preferences: ^2.0.12
+  #Loading lib
+  flutter_easyloading: ^3.0.3
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+  #Rating bar lib
+  flutter_rating_bar: ^4.0.0
+  #Connectivity lib (updated)
+  connectivity_plus: ^1.1.0
+  #For PODO stuffs (objet matching)
+  equatable: ^2.0.3
+  #Url Launcher
+  url_launcher: ^6.0.9
+  # Service locator
+  get_it: ^7.2.0
+  # Bloc for state management
+  flutter_bloc: ^7.2.0
+  # Functional programming thingies
+  dartz: ^0.10.0
+
 
 dev_dependencies:
   flutter_test:
@@ -45,8 +91,13 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
-  animated_splash_screen: ^1.3.0
+  mocktail: ^0.1.4
+  fake_cloud_firestore: ^1.1.3
+  #Build Runner
+  build_runner: ^2.1.2
 
+
+  flutter_native_splash:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -60,8 +111,17 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/
-    -
+    - assets/images/
+    - assets/fonts/
+
+  fonts:
+    - family: Circular
+      fonts:
+        - asset: assets/fonts/CircularStd-Medium.ttf
+        - asset: assets/fonts/CircularAir-Light.ttf
+          weight: 100
+        - asset: assets/fonts/CircularStd-Bold.ttf
+          weight: 500
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://futter.dev/assets-and-images/#resolution-aware.
 
@@ -87,3 +147,15 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+flutter_native_splash:
+
+  color: "#e1f5fe"
+  image: assets/images/ic_logo.png
+
+  color_dark: "#e1f5fe"
+  image_dark: assets/images/ic_logo.png
+
+  fullscreen: true
+  android12: true
+
+  #( flutter pub run flutter_native_splash:create )
