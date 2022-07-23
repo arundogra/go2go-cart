@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
 import '../helpers/colors.dart';
 
 class CustomAlert extends StatelessWidget{
@@ -14,7 +12,7 @@ class CustomAlert extends StatelessWidget{
   Widget build(BuildContext context) {
 
     return AlertDialog(
-      title: new Text(txt, style: GoogleFonts.ubuntu(color: darkGrey, fontSize: 14),),
+      title: Text(txt, style: TextStyle(color: darkGrey, fontSize: 14),),
       actions: actions
     );
   }

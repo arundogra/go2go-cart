@@ -29,48 +29,56 @@ environment:
 dependencies:
 
 
+  #Lib for Caching image (Like Glide in android)
   cached_network_image: ^3.2.0
+  #Slider for banners (like in Offers screen)
   carousel_slider: ^4.0.0
+  # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.4
+  #Ahha google map for flutter
+  google_maps_flutter: ^2.0.6
+  #Link sharing for all platforms
+  share_plus: ^2.1.4 #TODO
+  #Slideable for listviews
+  flutter_slidable: ^0.6.0
+  #Switch button for Day night theme changing
+  day_night_switcher: ^0.2.0+1
+  #Ahha Google Fonts
+  google_fonts: ^2.1.0
+  #State Management using provider
+  provider: ^6.0.0
 
+  #Firebase stuff
   firebase_auth: ^3.3.5
   firebase_core: ^1.11.0
   firebase_messaging: ^11.2.5
   firebase_messaging_web: ^2.2.6
 
+
   flutter:
     sdk: flutter
+
+  #Facebook auth
   flutter_facebook_auth: ^4.0.0
-  flutter_google_places: ^0.3.0
-
-  flutter_launcher_icons: ^0.9.2
-  flutter_local_notifications: ^9.2.0
-  flutter_native_timezone: ^2.0.0
-  flutter_rating_bar: ^4.0.0
-  flutter_secure_storage: ^5.0.2
-  font_awesome_flutter: ^9.2.0
-  geocoding: ^2.0.1
-  geolocator: ^8.0.1
-  google_fonts: ^2.2.0
-  google_maps_flutter: ^2.1.1
-  google_places_for_flutter: ^1.0.1
-  google_sign_in: ^5.2.2
-  http: ^0.13.4
-  image_picker: ^0.8.4+4
-  provider: ^6.0.2
-  pull_to_refresh: ^2.0.0
-
+  #Key value storing using Share Pref
   shared_preferences: ^2.0.12
-  timezone: ^0.8.0
-
-  workmanager: ^0.4.1
-  youtube_player_flutter: ^8.0.0
-
-  connectivity_plus: ^2.2.0
+  #Loading lib
   flutter_easyloading: ^3.0.3
+
+  #Rating bar lib
+  flutter_rating_bar: ^4.0.0
+  #Connectivity lib (updated)
+  connectivity_plus: ^1.1.0
+  #For PODO stuffs (objet matching)
   equatable: ^2.0.3
-  new_version: ^0.2.3
-  build_runner: ^2.1.7
+  #Url Launcher
+  url_launcher: ^6.0.9
+  # Service locator
+  get_it: ^7.2.0
+  # Bloc for state management
+  flutter_bloc: ^7.2.0
+  # Functional programming thingies
+  dartz: ^0.10.0
 
 
 dev_dependencies:
@@ -83,8 +91,13 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
-  animated_splash_screen: ^1.3.0
+  mocktail: ^0.1.4
+  fake_cloud_firestore: ^1.1.3
+  #Build Runner
+  build_runner: ^2.1.2
 
+
+  flutter_native_splash:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -99,7 +112,6 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
-    -
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://futter.dev/assets-and-images/#resolution-aware.
 
@@ -125,3 +137,16 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+flutter_native_splash:
+    color: "#ffffff"
+    image: assets/icon.png
+    color_dark: "#121212"
+    image_dark: assets/icon.png
+
+    android_12:
+      image: assets/icon.png
+      icon_background_color: "#ffffff"
+      image_dark: assets/icon.png
+      icon_background_color_dark: "#121212"
+
+    web: false
